@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="m-subheader__title">Dashboard</h3>
+    <h3 class="m-subheader__title">Customers</h3>
       <button @click="filterShown=true" class="btn btn-success" v-if="!filterShown">Show Filters</button>
         <button @click="filterShown=false;" class="btn btn-danger" v-else>Hide Filters</button>
         <br><br>
@@ -14,7 +14,7 @@
       :pagination-options="page"
     >
       <div @click="add" slot="table-actions">
-        <v-header></v-header>
+        <v-header  addbtn="Add Customers"></v-header>
       </div>
 
       <template slot="table-row" slot-scope="props">
