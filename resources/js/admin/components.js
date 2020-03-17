@@ -19,6 +19,8 @@ import VCustomFilter from './components/metronic/goodtable/VCustomFilter.vue'
 
 import CustomerForm from './components/customers/CustomerForm.vue'
 
+import LoginReg from './components/auth/LoginReg.vue'
+
 Vue.component('layout', Layout)
 
 Vue.component('appHeader', Header)
@@ -38,3 +40,6 @@ Vue.component('VFilter', VFilter)
 Vue.component('VCustomFilter', VCustomFilter)
 
 Vue.component('CustomerForm', CustomerForm)
+
+Vue.component('LoginReg', LoginReg)
+

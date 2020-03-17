@@ -198,8 +198,8 @@
 																<img src="../../assets/img/users/user2.jpg" class="m--img-rounded m--marginless" alt="" />
 															</div>
 															<div class="m-card-user__details">
-																<span class="m-card-user__name m--font-weight-500">Mark Andre</span>
-																<a href="" class="m-card-user__email m--font-weight-300 m-link">mark.andre@gmail.com</a>
+																<span class="m-card-user__name m--font-weight-500">Admin</span>
+																<a class="m-card-user__email m--font-weight-300 m-link">{{user.email}}</a>
 															</div>
 														</div>
 													</div>
@@ -210,46 +210,7 @@
 																	<span class="m-nav__section-text">Section</span>
 																</li>
 																<li class="m-nav__item">
-																	<a href="header/profile.html" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-profile-1"></i>
-																		<span class="m-nav__link-title">
-																			<span class="m-nav__link-wrap">
-																				<span class="m-nav__link-text">My Profile</span>
-																				<span class="m-nav__link-badge"><span class="m-badge m-badge--success">2</span></span>
-																			</span>
-																		</span>
-																	</a>
-																</li>
-																<li class="m-nav__item">
-																	<a href="header/profile.html" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-share"></i>
-																		<span class="m-nav__link-text">Activity</span>
-																	</a>
-																</li>
-																<li class="m-nav__item">
-																	<a href="header/profile.html" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-chat-1"></i>
-																		<span class="m-nav__link-text">Messages</span>
-																	</a>
-																</li>
-																<li class="m-nav__separator m-nav__separator--fit">
-																</li>
-																<li class="m-nav__item">
-																	<a href="header/profile.html" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-info"></i>
-																		<span class="m-nav__link-text">FAQ</span>
-																	</a>
-																</li>
-																<li class="m-nav__item">
-																	<a href="header/profile.html" class="m-nav__link">
-																		<i class="m-nav__link-icon flaticon-lifebuoy"></i>
-																		<span class="m-nav__link-text">Support</span>
-																	</a>
-																</li>
-																<li class="m-nav__separator m-nav__separator--fit">
-																</li>
-																<li class="m-nav__item">
-																	<a href="snippets/pages/user/login-1.html" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</a>
+																	<a @click="logout" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</a>
 																</li>
 															</ul>
 														</div>
@@ -273,7 +234,22 @@
 
 <script>
 export default {
-
+	data(){
+		return {
+			user:{
+				email:''
+			}
+		}
+	},
+methods:{
+	logout(){
+		localStorage.removeItem('user');
+		this.$router.go(0)
+	}
+},
+mounted(){
+	this.user.email = localStorage.getItem('user')
+}
 }
 </script>
 

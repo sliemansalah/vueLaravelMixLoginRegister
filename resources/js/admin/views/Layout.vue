@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <div>
+      <div v-if="login">
 		<!-- begin:: Page -->
 
 		<div class="m-grid m-grid--hor m-grid--root m-page">
@@ -39,6 +39,9 @@
 		<quick-nav></quick-nav>
 		<!-- begin::Quick Nav -->
   </div>
+  <div v-else>
+	  <login-reg></login-reg>
+  </div>
   </div>
 </template>
 
@@ -46,8 +49,17 @@
 import '../components'
 
 export default {
+	data(){
+		return {
+			login:false,
+		}
+	},
    components: {
 	
+  },
+  mounted(){
+	  let user = localStorage.getItem('user')
+	  user?this.login=true:this.login=false
   }
 }
 
